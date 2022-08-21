@@ -1,0 +1,60 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="col-sm-10">
+    <h3 class="text-white my-5">Contact Page</h3>
+    <form>
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-6">
+                <div class="md-form mb-0">
+                    <label for="name" class="">Name</label>
+                    <input type="text" id="name" name="name" class="form-control">
+                </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6">
+                <div class="md-form mb-0">
+                    <label for="email" class="">Email</label>
+                    <input type="text" id="email" name="email" class="form-control">
+                </div>
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+        <!--Grid row-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="md-form mb-0">
+                    <label for="subject" class="">Subject</label>
+                    <input type="text" id="subject" name="subject" class="form-control">
+                </div>
+            </div>
+        </div>
+        <!--Grid row-->
+
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-12">
+
+                <div class="md-form">
+                    <label for="message">Message</label>
+                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                    
+                </div>
+
+            </div>
+        </div>
+        <!--Grid row-->
+
+    </form>
+</div>
+{% endblock content %}
