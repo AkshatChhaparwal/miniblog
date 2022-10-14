@@ -60,9 +60,14 @@ def add_post(request):
                 desc=form.cleaned_data['desc']
                 pst=Post(title=title,desc=desc)
                 pst.save()
+                posts=Post.objects.all()
+                user=request.user
+                full_name=user.get_full_name
+                gps=user.groups.all()
+                return render(request,'blog/dashboard.html',{'posts':posts,'full_name':full_name,'groups':gps})
         else:
             form=PostForm()
-        return render(request,'blog/addpost.html',{'form':form})
+            return render(request,'blog/addpost.html',{'form':form})
     else:
         return HttpResponseRedirect('/login/')
 def update_post(request,id):
@@ -72,6 +77,11 @@ def update_post(request,id):
             form=PostForm(request.POST,instance=pi)
             if form.is_valid():
                 form.save()
+                posts=Post.objects.all()
+                user=request.user
+                full_name=user.get_full_name
+                gps=user.groups.all()
+                return render(request,'blog/dashboard.html',{'posts':posts,'full_name':full_name,'groups':gps})
         else:
             pi=Post.objects.get(pk=id)
             form=PostForm(instance=pi)
@@ -89,5 +99,3 @@ def delete_post(request,id):
 
 
 
-
-# Create your views here.
